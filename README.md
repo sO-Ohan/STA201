@@ -1,7 +1,7 @@
 # STA201: Elements of Statistics & Probability
 **Spring 2026 | RFI Section 05 | Collaborative Notes Vault**
 
-> 🔗 **Access Official Course Material (Google Drive)**
+> 🔗 **[Access Official Course Material (Google Drive)](https://drive.google.com/drive/folders/1KoZltoqStVicVWE0l5CK8NJKtRlwSLG3)**
 
 ## 📌 Repository Objective
 This repository serves as a centralized, collaborative environment for STA201 students in Section 05. The primary objective is to aggregate lecture notes, reference materials, and study guides to maximize academic success and efficiency for the entire class. Peer-to-peer sharing is highly encouraged.
@@ -47,3 +47,40 @@ cp ~/path/to/your/document.pdf Notes/Your_Name/
 git add Notes/Your_Name/
 git commit -m "Add lecture notes by Your_Name"
 git push -u origin update-notes-yourname
+```
+After pushing, a link will be generated in your terminal. Ctrl+Click that link to open the Pull Request page in your browser.
+
+</details>
+
+<details>
+<summary><b>🪟 3. Windows Method (Git Bash)</b></summary>
+
+Ensure Git for Windows is installed. 
+Open Git Bash and clone the repository:
+
+```bash
+git clone [https://github.com/YOUR_USERNAME/STA201.git](https://github.com/YOUR_USERNAME/STA201.git)
+cd STA201
+```
+
+Create a new branch:
+
+```bash
+git checkout -b update-notes-yourname
+```
+
+Using Windows File Explorer, navigate to the `STA201/Notes` folder, create a folder with your name, and place your files inside. 
+Return to Git Bash to commit and push:
+
+```bash
+git add .
+git commit -m "Add lecture notes by Your_Name"
+git push -u origin update-notes-yourname
+```
+
+Open your GitHub repository in a web browser and click the green Compare & pull request button.
+
+</details>
+
+## 📬 Alternative Submission Method
+If you encounter technical difficulties with Git or GitHub, you may share your materials directly in the designated section Messenger group. A repository maintainer will format and commit the files to the repository on your behalf to ensure the materials are still available to the class.
