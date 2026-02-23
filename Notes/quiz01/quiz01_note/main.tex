@@ -1,0 +1,423 @@
+% --- UNIVERSAL PREAMBLE BLOCK ---
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+\usepackage{fontspec}
+
+\usepackage[english, bidi=basic, provide=*]{babel}
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Set default/Latin font to Sans Serif in the main (rm) slot
+\babelfont{rm}{Noto Sans}
+
+% Math and layout packages
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\title{\textbf{Complete Statistics Assignment Solutions}}
+\author{
+    \textbf{[Md. Monjurul Hasan Bhuiyan]} \\ 
+    \textit{Student ID: [10000*****4} \\
+    \textit{Course: [STA201]}
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\vspace{0.5cm}
+
+\tableofcontents
+\vspace{1cm}
+\hrule
+\vspace{1cm}
+\newpage
+
+
+% ==========================================
+
+% SECTION 1.3: [Insert Title Here]
+
+% ==========================================
+
+\section{1.3 and  1.4}
+
+
+\begin{figure}[htbp]
+
+     \centering
+
+     % First row: Two images side-by-side
+
+     \begin{subfigure}[b]{0.45\textwidth}
+
+         \centering
+
+         \includegraphics[width=\linewidth]{image.png}
+
+         \caption{Caption for Figure 1}
+
+         \label{fig:image1}
+
+     \end{subfigure}
+
+     \hfill
+
+     \begin{subfigure}[b]{0.45\textwidth}
+
+         \centering
+
+         \includegraphics[width=\linewidth]{af.png}
+
+         \caption{Caption for Figure 2}
+
+         \label{fig:image2}
+
+     \end{subfigure}
+
+
+     \vspace{1cm} % Adds vertical space between rows
+
+
+     % Second row: Third image centered below
+
+     \begin{subfigure}[b]{0.6\textwidth}
+
+         \centering
+
+         \includegraphics[width=\linewidth]{wgra.png}
+
+         \caption{Caption for Figure 3}
+
+         \label{fig:image3}
+
+     \end{subfigure}
+
+     
+
+     \caption{Combined visualization of quantitative data.}
+
+     \label{fig:combined_plots}
+
+\end{figure}
+% ==========================================
+% SECTION 1: QUANTITATIVE DATA (CONTINUOUS)
+% ==========================================
+\section{Quantitative Data: Frequency Distributions}
+
+\subsection{Example 1: Income of Students}
+\textbf{Data Provided:} Income in Tk vs. No. of students ($n=52$).
+
+\subsubsection*{a. Data Summarization}
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Income (Tk)} & \textbf{Frequency ($f$)} & \textbf{Cum. Freq (cf)} & \textbf{Rel. Freq (rf)} & \textbf{rf Percent (\%)} & \textbf{Cum. Percent (\%)} \\
+\midrule
+50--100   & 8  & 8  & $8/52 \approx 0.154$  & 15.4 & 15.4 \\
+100--150  & 11 & 19 & $11/52 \approx 0.212$ & 21.2 & 36.6 \\
+150--200  & 10 & 29 & $10/52 \approx 0.192$ & 19.2 & 55.8 \\
+200--250  & 20 & 49 & $20/52 \approx 0.385$ & 38.5 & 94.3 \\
+250--300  & 3  & 52 & $3/52 \approx 0.058$  & 5.8  & 100.1 \\
+\midrule
+\textbf{Total} & \textbf{52} & & \textbf{1.001} & \textbf{100.1} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+\textit{Note: Total percentage is slightly above 100\% due to standard rounding.}
+
+\subsubsection*{b. Analytical Questions \& Conclusion}
+\textbf{3. How many students (\% or proportion) have income less than 150 Tk?}\\
+Answer: Students in the 50-100 and 100-150 groups. $8 + 11 = 19$ students. As a percentage: $15.4\% + 21.2\% = 36.6\%$.
+
+\textbf{4. How many students have income equal to or more than 200 Tk?}\\
+Answer: Students in the 200-250 and 250-300 groups. $20 + 3 = 23$ students. As a percentage: $38.5\% + 5.8\% = 44.3\%$.
+
+\textbf{Conclusion / Comment:}\\
+A maximum of $38.5\%$ of students have an income between 200-250 Tk, while the minimum number of students ($5.8\%$) fall into the highest income bracket of 250-300 Tk.
+
+\subsubsection*{c. Graphs: Histogram and Frequency Polygon}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar interval, ymin=0, ymax=22, xmin=50, xmax=300,
+    xlabel={Income (Tk)}, ylabel={Number of Students ($f$)},
+    xtick={50,100,150,200,250,300}, width=0.48\textwidth, height=6cm, fill=cyan!70!black
+]
+\addplot coordinates {(50, 8) (100, 11) (150, 10) (200, 20) (250, 3) (300, 0)};
+\end{axis}
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+\begin{axis}[
+    ymin=0, ymax=22, xmin=0, xmax=350,
+    xlabel={Income (Tk) - Midpoints}, ylabel={Frequency ($f$)},
+    xtick={25, 75, 125, 175, 225, 275, 325}, width=0.48\textwidth, height=6cm
+]
+\addplot[mark=*, thick, red] coordinates {(25, 0) (75, 8) (125, 11) (175, 10) (225, 20) (275, 3) (325, 0)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\vspace{1cm}
+% ------------------------------------------
+\subsection{Example 2: Age Distribution (15-40 years)}
+\textbf{Data Provided:} Age vs. Number of Persons ($n=35$).
+
+\subsubsection*{a. Data Summarization}
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Age (years)} & \textbf{Freq ($f$)} & \textbf{Cum. Freq (cf)} & \textbf{Rel. Freq (rf)} & \textbf{rf Percent (\%)} & \textbf{Cum. Percent (\%)} \\
+\midrule
+15--20 & 9  & 9  & 0.257 & 25.7 & 25.7 \\
+20--25 & 7  & 16 & 0.200 & 20.0 & 45.7 \\
+25--30 & 12 & 28 & 0.343 & 34.3 & 80.0 \\
+30--35 & 5  & 33 & 0.143 & 14.3 & 94.3 \\
+35--40 & 2  & 35 & 0.057 & 5.7  & 100.0 \\
+\midrule
+\textbf{Total} & \textbf{35} & & \textbf{1.000} & \textbf{100.0} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{b. Graphs and Conclusion}
+\textbf{Conclusion:} The largest age demographic in this dataset is 25-30 years, comprising $34.3\%$ of the individuals. The distribution is heavily skewed to the right (younger population), with $80\%$ of individuals being under the age of 30.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar interval, ymin=0, ymax=14, xmin=15, xmax=40,
+    xlabel={Age (years)}, ylabel={Persons ($f$)},
+    xtick={15,20,25,30,35,40}, width=0.5\textwidth, height=6cm, fill=blue!60!white
+]
+\addplot coordinates {(15, 9) (20, 7) (25, 12) (30, 5) (35, 2) (40, 0)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\vspace{1cm}
+% ------------------------------------------
+\subsection{Example 3: Age Distribution (With Class Gaps)}
+\textbf{Data Provided:} Age vs. Number of persons. Classes have gaps (20-29, 30-39...), so we first calculate continuous class boundaries (19.5-29.5...).
+
+\subsubsection*{a. Data Summarization (Using True Class Boundaries)}
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccccc}
+\toprule
+\textbf{Age limits} & \textbf{Boundaries} & \textbf{$f$} & \textbf{cf} & \textbf{rf} & \textbf{rf (\%)} & \textbf{Cum. (\%)} \\
+\midrule
+20--29 & 19.5--29.5 & 3  & 3  & 0.111 & 11.1 & 11.1 \\
+30--39 & 29.5--39.5 & 10 & 13 & 0.370 & 37.0 & 48.1 \\
+40--49 & 39.5--49.5 & 12 & 25 & 0.444 & 44.4 & 92.5 \\
+50--59 & 49.5--59.5 & 2  & 27 & 0.074 & 7.4  & 99.9 \\
+\midrule
+\textbf{Total} & & \textbf{27} & & \textbf{0.999} & \textbf{99.9} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{b. Graphs \& Ogive}
+\begin{center}
+% Histogram
+\begin{tikzpicture}
+\begin{axis}[
+    ybar interval, ymin=0, ymax=14, xmin=19.5, xmax=59.5,
+    xlabel={Age Boundaries (years)}, ylabel={Persons ($f$)},
+    xtick={19.5, 29.5, 39.5, 49.5, 59.5}, width=0.45\textwidth, height=5.5cm, fill=blue!50
+]
+\addplot coordinates {(19.5, 3) (29.5, 10) (39.5, 12) (49.5, 2) (59.5, 0)};
+\end{axis}
+\end{tikzpicture}
+\quad
+% Ogive
+\begin{tikzpicture}
+\begin{axis}[
+    ymin=0, ymax=30, xmin=15, xmax=65,
+    xlabel={Upper Class Boundaries}, ylabel={Cumulative Freq. (cf)},
+    xtick={19.5, 29.5, 39.5, 49.5, 59.5}, width=0.45\textwidth, height=5.5cm,
+    title={Cumulative Frequency Curve (Ogive)}
+]
+\addplot[mark=square*, thick, orange] coordinates {(19.5, 0) (29.5, 3) (39.5, 13) (49.5, 25) (59.5, 27)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\textbf{Conclusion:} The maximum number of individuals ($44.4\%$) fall within the 40-49 age group (boundaries 39.5-49.5). The frequency curve would show a left-skewed distribution as most individuals are older than 30.
+
+\newpage
+% ==========================================
+% SECTION 2: QUALITATIVE DATA
+% ==========================================
+\section{Qualitative Data Analysis}
+
+\subsection{Example 1: Future Profession}
+\textbf{Data Provided:} Future Profession vs. No. of students ($n=30$).
+\\ \textbf{a. Data Type:} This is \textbf{Qualitative Nominal Data}.
+
+\subsubsection*{Data Table for Pie Chart}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Profession} & \textbf{Freq ($f$)} & \textbf{Percentage (\%)} & \textbf{Degree ($^\circ$) calculation} & \textbf{Degree ($^\circ$)} \\
+\midrule
+Banker   & 12 & 40.0 & $0.400 \times 360$ & 144 \\
+Teacher  & 5  & 16.7 & $0.167 \times 360$ & 60  \\
+Business & 10 & 33.3 & $0.333 \times 360$ & 120 \\
+Lawyer   & 3  & 10.0 & $0.100 \times 360$ & 36  \\
+\midrule
+\textbf{Total} & \textbf{30} & \textbf{100.0} & & \textbf{360} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Pie Chart \& Bar Diagram}
+\begin{center}
+\begin{tikzpicture}
+% Bar Chart
+\begin{axis}[
+    ybar,
+    symbolic x coords={Banker, Teacher, Business, Lawyer},
+    xtick=data,
+    ymin=0, ymax=14,
+    ylabel={Number of Students},
+    width=0.45\textwidth, height=6cm,
+    bar width=20pt,
+    nodes near coords,
+    fill=teal!60
+]
+\addplot coordinates {(Banker, 12) (Teacher, 5) (Business, 10) (Lawyer, 3)};
+\end{axis}
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+% Pie chart
+\def\radius{2.5cm}
+\draw[fill=blue!50] (0,0) -- (0:\radius) arc (0:144:\radius) -- cycle;
+\node at (72:\radius/1.6) {Banker};
+
+\draw[fill=red!50] (0,0) -- (144:\radius) arc (144:204:\radius) -- cycle;
+\node at (174:\radius/1.4) {Teacher};
+
+\draw[fill=green!50] (0,0) -- (204:\radius) arc (204:324:\radius) -- cycle;
+\node at (264:\radius/1.6) {Business};
+
+\draw[fill=orange!50] (0,0) -- (324:\radius) arc (324:360:\radius) -- cycle;
+\node at (342:\radius/1.3) {Lawyer};
+\end{tikzpicture}
+\end{center}
+\textbf{Comment:} The majority of students ($40\%$) want to be bankers, while the least preferred profession is Lawyer ($10\%$).
+
+\vspace{0.5cm}
+% ------------------------------------------
+\subsection{Example 2: Favourite Colours (Overall \& Grouped by Gender)}
+\textbf{Data Type:} Qualitative Nominal.
+
+\subsubsection*{Grouped Bar Diagram (Male vs Female)}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Colour} & \textbf{Male ($n=22$)} & \textbf{Female ($n=18$)} & \textbf{\% Male} & \textbf{\% Female} \\
+\midrule
+Black & 10 & 5 & 45.5\% & 27.8\% \\
+Blue  & 3  & 7 & 13.6\% & 38.9\% \\
+Red   & 4  & 3 & 18.2\% & 16.7\% \\
+White & 5  & 3 & 22.7\% & 16.7\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    symbolic x coords={Black, Blue, Red, White},
+    xtick=data,
+    ymin=0, ymax=12,
+    ylabel={Number of Students},
+    width=0.7\textwidth, height=6cm,
+    bar width=15pt,
+    legend pos=north east,
+    enlarge x limits=0.2,
+]
+\addplot[fill=blue!60] coordinates {(Black, 10) (Blue, 3) (Red, 4) (White, 5)};
+\addplot[fill=red!60]  coordinates {(Black, 5) (Blue, 7) (Red, 3) (White, 3)};
+\legend{Male, Female}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\textbf{Comment:} For males, the maximum percentage ($45.5\%$) favour Black, and the minimum ($13.6\%$) favour Blue. Conversely, for females, the maximum ($38.9\%$) favour Blue, while Red and White are tied for the minimum ($16.7\%$ each).
+
+\newpage
+% ==========================================
+% SECTION 3: TIME SERIES DATA
+% ==========================================
+\section{Time Series Data Analysis}
+
+\subsection{Example 1: Price of Sugar Over Time}
+\textbf{a. Type of data:} This is \textbf{Time Series Data} (data collected at successive points in time). \\
+\textbf{c. Write 5 examples of time series data:} 
+1. Daily stock market closing prices. 
+2. Annual gross domestic product (GDP) of a country. 
+3. Monthly rainfall in a specific city. 
+4. Hourly temperature readings. 
+5. Annual sales revenue of a company.
+
+\subsection{Example 5: Price of Sugar vs Price of Onion}
+\textbf{Data Provided:}
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\toprule
+\textbf{Years} & \textbf{Price of Sugar (Tk)} & \textbf{Price of Onion (Tk)} \\
+\midrule
+2018 & 40 & 50 \\
+2019 & 50 & 35 \\
+2020 & 45 & 30 \\
+2021 & 70 & 50 \\
+2022 & 90 & 30 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Line Diagram \& Interpretation}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    ymin=0, ymax=100,
+    xmin=2017.5, xmax=2022.5,
+    xtick={2018, 2019, 2020, 2021, 2022},
+    xticklabel style={/pgf/number format/1000 sep=}, % Removes comma from years
+    xlabel={Years},
+    ylabel={Price (Tk)},
+    width=0.8\textwidth, height=7cm,
+    legend pos=north west,
+    grid=major
+]
+\addplot[mark=*, thick, blue!70] coordinates {
+    (2018, 40) (2019, 50) (2020, 45) (2021, 70) (2022, 90)
+};
+\addplot[mark=square*, thick, red!70] coordinates {
+    (2018, 50) (2019, 35) (2020, 30) (2021, 50) (2022, 30)
+};
+\legend{Price of Sugar, Price of Onion}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\textbf{Comment / Conclusion:} 
+The line graph clearly shows that the price of sugar has a general \textbf{increasing trend} over the years 2018 to 2022, rising steeply from 45 Tk in 2020 to 90 Tk in 2022. In contrast, the price of onions does not show a steady trend; it is highly \textbf{unstable and fluctuating}, dropping as low as 30 Tk and spiking back to 50 Tk multiple times within the same period.
+
+\end{document}
